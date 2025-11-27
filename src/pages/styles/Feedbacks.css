@@ -1,0 +1,550 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+
+.feedback-container {
+  font-family: 'Nunito', sans-serif;
+  height: 100vh;
+  background: #D8E3E7;
+  padding: 2rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.back-button {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  background: transparent;
+  border: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #000000;
+  z-index: 10;
+}
+
+.back-button:hover {
+  transform: scale(1.1);
+}
+
+.feedback-content {
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem 2rem 0;
+  height: calc(100vh - 4rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.mascot-affectus {
+  width: 210px;
+  height: auto;
+  margin-bottom: -100px;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.header-text {
+  flex: 1;
+  max-width: 700px;
+  text-align: center;
+}
+
+.title {
+  color: #124B6E;
+  font-weight: 800;
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.subtitle {
+  color: #124B6E;
+  font-weight: 700;
+  font-size: 1.15rem;
+  line-height: 1.4;
+}
+
+.feedback-box {
+  background: #66C7E8;
+  border-radius: 0;
+  padding: 3.5rem 2rem;
+  box-shadow: none;
+  width: 100vw;
+  min-height: 520px;
+  margin: 0 -2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.teeth-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 3rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.tooth-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Carinha Base */
+.tooth {
+  width: 130px;
+  height: 130px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tooth:hover {
+  transform: scale(1.08) translateY(-5px);
+}
+
+.tooth.selected {
+  transform: scale(1.12) translateY(-8px);
+}
+
+.tooth-body {
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+/* Olhos */
+.eyes {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.eye {
+  width: 16px;
+  height: 16px;
+  background: #2D3748;
+  border-radius: 50%;
+  position: relative;
+}
+
+/* Olhos Feliz */
+.happy-eye {
+  width: 14px;
+  height: 14px;
+  background: #2D3748;
+  border-radius: 50%;
+  animation: blink 3s infinite;
+}
+
+.happy-eye::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 3px;
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+}
+
+/* Olhos Neutro */
+.neutral-eye {
+  width: 14px;
+  height: 14px;
+  background: #2D3748;
+  border-radius: 50%;
+}
+
+.neutral-eye::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 3px;
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+}
+
+/* Olhos Triste */
+.sad-eye {
+  width: 14px;
+  height: 16px;
+  background: #2D3748;
+  border-radius: 50%;
+}
+
+.sad-eye::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+}
+
+/* Lágrimas */
+.tear {
+  position: absolute;
+  width: 6px;
+  height: 8px;
+  background: #4299E1;
+  border-radius: 50% 0 50% 50%;
+  top: 18px;
+  left: 4px;
+  animation: fall 2s infinite;
+}
+
+.tear-2 {
+  animation-delay: 0.5s;
+}
+
+@keyframes fall {
+  0%, 50% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+@keyframes blink {
+  0%, 48%, 52%, 100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.1);
+  }
+}
+
+/* Bocas */
+.mouth {
+  width: 50px;
+  height: 25px;
+  position: relative;
+}
+
+/* Boca Feliz */
+.happy-mouth {
+  width: 50px;
+  height: 25px;
+  border: 3px solid #2D3748;
+  border-color: transparent transparent #2D3748 transparent;
+  border-radius: 0 0 50px 50px;
+  background: transparent;
+}
+
+/* Boca Neutra */
+.neutral-mouth {
+  width: 35px;
+  height: 3px;
+  background: #2D3748;
+  border-radius: 2px;
+}
+
+/* Boca Triste */
+.sad-mouth {
+  width: 45px;
+  height: 20px;
+  border: 3px solid #2D3748;
+  border-color: #2D3748 transparent transparent transparent;
+  border-radius: 50px 50px 0 0;
+  background: transparent;
+  margin-top: 0.5rem;
+}
+
+/* Cores das carinhas */
+.tooth.happy .tooth-body {
+  background: linear-gradient(135deg, #FFE66D 0%, #FFCA3A 100%);
+  border: 4px solid #FF9F1C;
+  box-shadow: 0 8px 20px rgba(255, 202, 58, 0.4);
+}
+
+.tooth.neutral .tooth-body {
+  background: linear-gradient(135deg, #8FE3CF 0%, #5FD4A5 100%);
+  border: 4px solid #3EC28F;
+  box-shadow: 0 8px 20px rgba(95, 212, 165, 0.4);
+}
+
+.tooth.sad .tooth-body {
+  background: linear-gradient(135deg, #AE9EFF 0%, #9381FF 100%);
+  border: 4px solid #7161EF;
+  box-shadow: 0 8px 20px rgba(147, 129, 255, 0.4);
+}
+
+/* Checkbox */
+.checkbox {
+  width: 50px;
+  height: 50px;
+  border-radius: 15%;
+  border: 4px solid #2D3748;
+  background: #66C7E8;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.checkbox:hover {
+  border-color: #1A202C;
+  transform: scale(1.1);
+}
+
+.checkbox.checked {
+  background: #66C7E8;
+  border-color: #2D3748;
+}
+
+.checkmark {
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: #4CAF50;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation: checkmarkDraw 0.3s ease;
+}
+
+@keyframes checkmarkDraw {
+  0% {
+    stroke-dasharray: 0 50;
+  }
+  100% {
+    stroke-dasharray: 50 0;
+  }
+}
+
+.footer-text {
+  text-align: center;
+  color: #2C7DA0;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+/* Modal de Sucesso */
+.success-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.success-modal {
+  background: white;
+  border-radius: 2rem;
+  padding: 3rem 2.5rem;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: slideUp 0.4s ease;
+}
+
+.close-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 2.5rem;
+  color: #999;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  line-height: 1;
+  padding: 0;
+}
+
+.close-modal:hover {
+  color: #333;
+  transform: rotate(90deg);
+}
+
+.success-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #48BB78 0%, #38A169 100%);
+  color: white;
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  animation: scaleIn 0.5s ease;
+}
+
+.success-title {
+  color: #2D3748;
+  font-weight: 800;
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.success-text {
+  color: #4A5568;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.success-button {
+  background: linear-gradient(135deg, #48BB78 0%, #38A169 100%);
+  color: white;
+  border: none;
+  border-radius: 1rem;
+  padding: 0.875rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(72, 187, 120, 0.3);
+}
+
+.success-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(72, 187, 120, 0.4);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .feedback-container {
+    padding: 1rem;
+  }
+
+  .back-button {
+    width: 48px;
+    height: 48px;
+    top: 1rem;
+    left: 1rem;
+  }
+
+  .header-section {
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .mascot-affectus {
+    width: 100px;
+  }
+
+  .title {
+    font-size: 0.85rem;
+  }
+
+  .subtitle {
+    font-size: 0.85rem;
+  }
+
+  .feedback-box {
+    padding: 1.5rem 1rem;
+  }
+
+  .teeth-container {
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .tooth {
+    width: 90px;
+    height: 90px;
+  }
+
+  .checkbox {
+    width: 42px;
+    height: 42px;
+  }
+
+  .checkmark {
+    width: 24px;
+    height: 24px;
+  }
+
+  .footer-text {
+    font-size: 0.95rem;
+  }
+}

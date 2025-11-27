@@ -1,0 +1,867 @@
+/* ========== RESET & BASE ========== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ========== GALERIA PRINCIPAL ========== */
+.certificados-galeria {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ========== HEADER ========== */
+.galeria-header {
+  background: linear-gradient(135deg, #64b5f6 0%, #42a5f5 100%);
+  padding: clamp(1rem, 2vh, 1.5rem) 0;
+  box-shadow: 0 4px 20px rgba(100, 181, 246, 0.4);
+  width: 100%;
+}
+
+.header-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 3vw, 2rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(1rem, 2vw, 2rem);
+  flex-wrap: wrap;
+}
+
+/* ========== HEADER LEFT (Botão Voltar + Logo) ========== */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 1.5vw, 1rem);
+  flex-shrink: 0;
+}
+
+.voltar-btn {
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  border-radius: 50%;
+  width: clamp(2.5rem, 5vw, 3.5rem);
+  height: clamp(2.5rem, 5vw, 3.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.voltar-btn:hover {
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(1.05);
+}
+
+.voltar-btn svg {
+  width: clamp(1.25rem, 2.5vw, 1.75rem);
+  height: clamp(1.25rem, 2.5vw, 1.75rem);
+  color: white;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+}
+
+.logo-icon {
+  width: clamp(4rem, 8vw, 7rem);
+  height: auto;
+  display: block;
+}
+
+/* ========== HEADER CENTER (Mascote + Balão) ========== */
+.header-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+}
+
+.mascot-bubble-container {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  max-width: 100%;
+}
+
+.colorir-mascot {
+  width: clamp(4rem, 8vw, 7rem);
+  height: auto;
+  filter: drop-shadow(0 6px 20px rgba(66, 165, 245, 0.3));
+  flex-shrink: 0;
+}
+
+/* Balão de fala - REDUZIDO */
+.speech-bubblee {
+  background: white;
+  padding: clamp(0.75rem, 1.5vw, 1.25rem) clamp(1rem, 2vw, 1.5rem);
+  border-radius: clamp(1rem, 2vw, 1.5rem);
+  max-width: min(400px, 50vw);
+  box-shadow: 0 6px 25px rgba(66, 165, 245, 0.3);
+  position: relative;
+}
+
+.speech-bubblee::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid white;
+}
+
+.speech-bubblee h1 {
+  color: #42a5f5;
+  font-size: clamp(0.7rem, 1.5vw, 1rem);
+  font-weight: 700;
+  margin: 0;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* ========== HEADER RIGHT (Search) ========== */
+.header-right {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: clamp(1.25rem, 2.5vw, 1.75rem);
+  padding: clamp(0.5rem, 1vw, 0.75rem) clamp(0.75rem, 1.5vw, 1.25rem);
+  gap: clamp(0.5rem, 1vw, 0.75rem);
+  min-width: min(250px, 100%);
+  box-shadow: 0 4px 15px rgba(66, 165, 245, 0.2);
+}
+
+.filter-label {
+  font-size: clamp(0.65rem, 1.2vw, 0.85rem);
+  font-weight: 700;
+  color: #42a5f5;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.search-input1 {
+  border: none;
+  outline: none;
+  flex: 1;
+  padding: 0.25rem;
+  font-size: clamp(0.75rem, 1.4vw, 0.95rem);
+  color: #333;
+  min-width: 0;
+  background: transparent;
+}
+
+.search-input::placeholder {
+  color: #90caf9;
+}
+
+.search-btn {
+  background: linear-gradient(135deg, #64b5f6 0%, #42a5f5 100%);
+  border: none;
+  border-radius: 50%;
+  width: clamp(2rem, 4vw, 2.5rem);
+  height: clamp(2rem, 4vw, 2.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(66, 165, 245, 0.3);
+  flex-shrink: 0;
+}
+
+.search-btn:hover {
+  background: linear-gradient(135deg, #42a5f5 0%, #2196f3 100%);
+  transform: scale(1.05);
+}
+
+.search-btn svg {
+  width: clamp(1rem, 2vw, 1.25rem);
+  height: clamp(1rem, 2vw, 1.25rem);
+  color: white;
+}
+.certificado-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+
+  /* 🔥 Impede o corte vertical */
+  height: auto;
+  min-height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  padding: 0.5rem;
+  width: 100%;
+}
+
+/* ========== GRID DE CERTIFICADOS ========== */
+.certificados-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: clamp(2rem, 4vh, 3rem) clamp(1rem, 3vw, 2rem);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  width: 100%;
+}
+
+.certificado-card {
+  background: white;
+  border-radius: clamp(1rem, 2vw, 1.5rem);
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(66, 165, 245, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  width: 100%;
+}
+
+.certificado-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(66, 165, 245, 0.3);
+}
+
+.certificado-preview {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* mantém o footer no fundo */
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;   /* mantém proporção correta */
+  max-height: clamp(190px, 32vw, 320px); /* altura reduzida RESPONSIVAMENTE */
+  overflow: hidden;
+}
+
+
+
+/* Formas decorativas do fundo */
+.background-shapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50% 20% 50% 20%;
+  opacity: 0.6;
+}
+
+.shape-1 {
+  top: -15px;
+  left: -15px;
+  width: 60px;
+  height: 60px;
+  background: #28a745;
+  transform: rotate(45deg);
+}
+
+.shape-2 {
+  top: 10px;
+  right: -10px;
+  width: 50px;
+  height: 50px;
+  background: #ffc107;
+  transform: rotate(-30deg);
+}
+
+.shape-3 {
+  bottom: -10px;
+  left: 20px;
+  width: 55px;
+  height: 55px;
+  background: #e91e63;
+  transform: rotate(60deg);
+}
+
+.shape-4 {
+  bottom: 20px;
+  right: -8px;
+  width: 45px;
+  height: 45px;
+  background: #2196f3;
+  transform: rotate(-45deg);
+}
+
+.shape-5 {
+  top: 50%;
+  left: -20px;
+  width: 40px;
+  height: 40px;
+  background: #ff5722;
+  transform: rotate(30deg);
+}
+
+.shape-6 {
+  top: 30%;
+  right: 20px;
+  width: 35px;
+  height: 35px;
+  background: #9c27b0;
+  transform: rotate(-60deg);
+}
+
+/* Elementos decorativos esquerda */
+.decorative-left {
+  position: absolute;
+  top: 1rem;
+  left: 0.75rem;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.notebook {
+  position: relative;
+  width: 18px;
+  height: 22px;
+}
+
+.notebook-cover {
+  width: 100%;
+  height: 100%;
+  background: #4a90e2;
+  border-radius: 2px;
+}
+
+.notebook-pages {
+  position: absolute;
+  top: 2px;
+  right: -2px;
+  width: 90%;
+  height: 85%;
+  background: white;
+  border-radius: 1px;
+  border: 1px solid #ddd;
+}
+
+.pencil {
+  width: 3px;
+  height: 25px;
+  background: linear-gradient(to bottom, #ffc107 0%, #ffc107 70%, #ff5722 70%, #ff5722 100%);
+  border-radius: 1.5px;
+  transform: rotate(-15deg);
+  align-self: center;
+}
+
+.ruler {
+  width: 22px;
+  height: 3px;
+  background: #28a745;
+  border-radius: 1.5px;
+  position: relative;
+}
+
+.ruler::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: repeating-linear-gradient(to right, transparent 0px, transparent 2px, white 2px, white 3px);
+}
+
+/* Elementos decorativos direita */
+.decorative-right {
+  position: absolute;
+  top: 1rem;
+  right: 0.75rem;
+  z-index: 1;
+}
+
+.graduation-hat {
+  position: relative;
+  width: 28px;
+  height: 20px;
+}
+
+.hat-base {
+  width: 100%;
+  height: 7px;
+  background: #333;
+  border-radius: 15px;
+  position: absolute;
+  bottom: 0;
+}
+
+.hat-top {
+  width: 70%;
+  height: 11px;
+  background: #333;
+  border-radius: 50% 50% 10px 10px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tassel {
+  position: absolute;
+  top: -2px;
+  right: 5px;
+  width: 2px;
+  height: 8px;
+  background: #ffc107;
+  border-radius: 1px;
+}
+
+.tassel::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: -1px;
+  width: 4px;
+  height: 4px;
+  background: #ffc107;
+  border-radius: 50%;
+}
+
+/* ========== CONTEÚDO DO CERTIFICADO ========== */
+.certificado-content {
+  flex: 1; /* ocupa o meio e deixa o footer embaixo */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.certificado-title {
+  color: #4a90e2;
+  font-size: clamp(0.6rem, 1vw, 0.9rem);
+  font-weight: 900;
+  margin: 0 0 0.25rem 50px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.certificado-subtitle {
+  margin: 0;
+  margin-top: clamp(0.3rem, 0.8vw, 0.8rem) !important;
+  padding-top: 0 !important;
+  position: relative;
+  z-index: 3;
+  margin-bottom: 0.3rem;
+  color: #666;
+  font-size: clamp(0.45rem, 0.9vw, 0.75rem);
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 0.3px;
+}
+
+
+
+.nome-section {
+  margin: 0.5rem 0;
+}
+
+.nome-estudante {
+  color: #333;
+  font-size: clamp(0.6rem, 1.2vw, 0.85rem);
+  font-weight: 700;
+  margin: 0;
+  padding: 0.5rem 0;
+  border-top: 2px dotted #ddd;
+  border-bottom: 2px dotted #ddd;
+  word-break: break-word;
+}
+
+.certificado-text {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+}
+.achievement-text {
+  color: #555;
+  font-size: clamp(0.6rem, 1vw, 0.95rem);
+  line-height: 1.35;
+  margin: 0;
+
+  max-width: 95%;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+
+
+
+.achievement-text strong {
+  color: #4a90e2;
+  font-weight: 700;
+}
+
+/* ========== FOOTER DO CERTIFICADO (Assinatura + Medalha) ========== */
+.certificado-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+
+  /* garante que nada corte */
+  overflow: hidden;
+}
+
+
+/* MOSTRAR assinatura dentro do modal SEMPRE */
+.certificado-modal .certificado-footer,
+.certificado-modal .signature-section {
+  display: flex !important;
+}
+
+/* OCULTAR assinatura SOMENTE no preview (cards da galeria) */
+.certificados-grid .certificado-preview .certificado-footer,
+.certificados-grid .certificado-preview .signature-section {
+  display: none !important;
+}
+
+.signature-section {
+  flex: 1;
+  text-align: left;
+  min-width: 0;
+}
+
+.signature-line {
+  width: 60px;
+  height: 1px;
+  background: #333;
+  margin-bottom: 0.25rem;
+}
+
+.signature-name {
+  font-size: clamp(0.5rem, 1vw, 0.65rem);
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+.signature-title {
+  font-size: clamp(0.45rem, 0.9vw, 0.6rem);
+  color: #666;
+  margin: 0;
+}
+
+/* MEDALHA - POSICIONADA NA PARTE INFERIOR */
+
+/* ========== LABEL DO CERTIFICADO ========== */
+.certificado-label {
+  background: #333;
+  color: white;
+  padding: clamp(0.75rem, 1.5vw, 1rem) clamp(1rem, 2vw, 1.5rem);
+  text-align: center;
+}
+
+.certificado-label span {
+  font-size: clamp(0.7rem, 1.4vw, 0.95rem);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  word-break: break-word;
+}
+
+/* ========== MODAL ========== */
+.certificado-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: clamp(1rem, 3vw, 2rem);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  background: white;
+  border-radius: clamp(1rem, 2vw, 1.5rem);
+  max-width: min(95vw, 700px);
+
+  /* 🔥 Permite que o certificado cresça sem cortar */
+  max-height: none;
+
+  width: 100%;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  
+  flex: 1; /* ocupa o meio e deixa o footer embaixo */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+
+
+
+  /* 🔥 Mantém responsivo sem cortar */
+  overflow-y: visible;
+
+  position: relative;
+  animation: slideUp 0.3s ease-out;
+}
+
+.close-btn {
+  position: absolute;
+  top: clamp(0.75rem, 1.5vw, 1rem);
+  right: clamp(0.75rem, 1.5vw, 1rem);
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: clamp(2rem, 4vw, 2.5rem);
+  height: clamp(2rem, 4vw, 2.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(231, 76, 60, 0.4);
+}
+
+.close-btn:hover {
+  background: #c0392b;
+  transform: rotate(90deg);
+}
+
+.close-btn svg {
+  width: clamp(1rem, 2vw, 1.25rem);
+  height: clamp(1rem, 2vw, 1.25rem);
+}
+
+.download-btn {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+  border: none;
+  padding: clamp(0.75rem, 1.5vw, 1rem) clamp(1.5rem, 3vw, 2rem);
+  border-radius: clamp(1.5rem, 3vw, 2rem);
+  font-size: clamp(0.85rem, 1.6vw, 1.1rem);
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: clamp(1rem, 2vw, 1.5rem);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+}
+
+.download-btn:hover {
+  background: linear-gradient(135deg, #218838 0%, #1aa179 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+}
+
+.download-btn svg {
+  width: clamp(1rem, 2vw, 1.25rem);
+  height: clamp(1rem, 2vw, 1.25rem);
+}
+
+/* Modal - Certificado maior */
+.modal-content .certificado-preview {
+  aspect-ratio: 4/3;
+  max-width: 100%;
+  margin-bottom: 1rem;
+}
+
+
+.modal-content .certificado-title {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.modal-content .certificado-subtitle {
+  font-size: clamp(0.75rem, 1.5vw, 1.1rem);
+}
+
+.modal-content .nome-estudante {
+  font-size: clamp(0.85rem, 1.7vw, 1.2rem);
+}
+
+.modal-content .achievement-text {
+  font-size: clamp(0.7rem, 1.4vw, 1rem);
+}
+/* ====== CORREÇÃO DO SUBTÍTULO NO MODAL ====== */
+.modal-content .certificado-subtitle {
+  position: relative;
+  z-index: 10 !important;
+  display: block !important;
+}
+
+/* ====== ASSINATURA APARECENDO NO MODAL ====== */
+.modal-content .signature-section,
+.modal-content .certificado-footer {
+  display: flex !important;
+}
+
+/* ====== CERTIFICADO ABERTO (MODAL) MOSTRAR TUDO SEM CORTAR ====== */
+.modal-content .certificado-preview {
+  max-height: none !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+
+/* ========== RESPONSIVIDADE ========== */
+
+/* Tablets grandes */
+@media (max-width: 1024px) {
+  .certificados-grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+
+  }
+  
+  .speech-bubblee {
+    max-width: min(350px, 55vw);
+  }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  
+  .header-left {
+    justify-content: flex-start;
+  }
+  
+  .header-center {
+    order: 2;
+  }
+  
+  .header-right {
+    order: 3;
+    justify-content: center;
+  }
+  
+  .mascot-bubble-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .speech-bubblee {
+    max-width: 100%;
+  }
+  
+  .speech-bubblee::before {
+    display: none;
+  }
+  
+  .search-container1 {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .certificados-grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+    gap: 1.5rem;
+  }
+}
+
+/* Smartphones */
+@media (max-width: 480px) {
+  .header-left {
+    gap: 0.5rem;
+  }
+  
+  .filter-label {
+    display: none;
+  }
+  
+  .certificados-grid {
+    grid-template-columns: 1fr;
+    padding: 1.5rem 1rem;
+  }
+  
+  .shape {
+    transform: scale(0.7);
+  }
+  
+  .decorative-left,
+  .decorative-right {
+    transform: scale(0.8);
+  }
+}
+
+/* Smartphones pequenos */
+@media (max-width: 360px) {
+  .speech-bubblee h1 {
+    font-size: clamp(0.65rem, 1.8vw, 0.85rem);
+  }
+  
+  .shape {
+    transform: scale(0.6);
+  }
+}
+
+/* Telas muito grandes */
+@media (min-width: 1440px) {
+  .header-content {
+    max-width: 1600px;
+  }
+  
+  .certificados-grid {
+    max-width: 1600px;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 350px), 1fr));
+  }
+}
+
+/* Orientação paisagem em mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+  .galeria-header {
+    padding: 0.75rem 0;
+  }
+  
+  .header-content {
+    flex-direction: row;
+    gap: 1rem;
+  }
+  
+  .mascot-bubble-container {
+    flex-direction: row;
+  }
+  
+  .certificados-grid {
+    padding: 1.5rem 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr));
+  }
+}
