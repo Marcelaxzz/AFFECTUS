@@ -1,0 +1,484 @@
+/* ====== Layout geral ====== */
+.container-jogo-reflexo {
+  background: #050533;
+  background-attachment: fixed;
+  color: #fff;
+  font-family: 'Chewy', cursive;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* centraliza o conteúdo do jogo */
+  overflow: hidden;
+  box-sizing: border-box;
+  position: relative; /* permite posicionar o header */
+}
+
+/* ====== Header ====== */
+.header-jogo-reflexo {
+  position: absolute; /* fixa o header dentro do container */
+  top: 25px; /* distância do topo */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reflexo-btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 20px;
+}
+
+/* ====== Botões do Header ====== */
+.reflexo-sair-btn,
+.botao-reiniciar-reflexo {
+  border: none;
+  background: radial-gradient(circle at 30% 30%, #72cff7 0%, #3baee4 40%, #0091c9 100%);
+  color: #020f30;
+  border: 2px solid #89b8ec;
+  font-weight: bold;
+  border-radius: 50px;
+  height: 45px;
+  width: 45px;
+  cursor: pointer;
+  font-size: 26px;
+  transition: all 0.2s ease;
+}
+
+
+.reflexo-sair-btn:hover,
+.botao-reiniciar-reflexo:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+/* ===== Barra de Vidas ===== */
+/* ===== Barra de Vidas ===== */
+.vidas-container {
+  position: relative;
+  flex-grow: 1;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(114, 207, 247, 0.4);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0 10px;
+  transition: all 0.3s ease;
+}
+
+.barra-vidas {
+  height: 100%;
+  background: linear-gradient(90deg, #29eb63, #13b154);
+  transition: all 0.3s ease;
+}
+
+.barra-vidas.medio {
+  background: linear-gradient(90deg, #ffdf2f, #e0b600);
+}
+
+.barra-vidas.critico {
+  background: linear-gradient(90deg, #ff4040, #c90000);
+  animation: piscar-vida 0.7s infinite;
+}
+
+@keyframes piscar-vida {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* ===== Responsividade específica da barra ===== */
+
+/* 📱 Celulares (telas até 600px) */
+@media (max-width: 600px) {
+  .vidas-container {
+    width: 70%;
+    height: 14px;
+    border-width: 1.5px;
+    border-radius: 8px;
+    margin: 0 auto;
+  }
+
+  .barra-vidas {
+    height: 100%;
+  }
+}
+
+
+
+
+/* ====== Tabuleiro ====== */
+.tabuleiro-reflexos {
+  display: grid;
+  grid-template-columns: repeat(2, 180px);
+  grid-template-rows: repeat(3, 180px);
+  gap: 16px;
+  border-radius: 14px;
+  margin-top: 20px;
+  margin-bottom: 25px;
+  background-color: #050533;
+}
+
+/* ====== Blocos ====== */
+.bloco {
+  width: 180px;
+  height: 180px;
+  background-color: rgba(44, 99, 201, 0.45);
+  opacity: 0.5;
+  border-radius: 18px;
+  border: 2px solid rgba(32, 32, 109, 0.5);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.bloco:hover {
+  transform: scale(1.05);
+  opacity: 0.8;
+}
+
+.bloco.ativo {
+  background: radial-gradient(circle at 30% 30%, #44dd98 0%, #21bb76 40%, #058b53 100%);
+  opacity: 1;
+  box-shadow: 0 0 8px #1ca158d7, inset 0 0 10px #f0ecec;
+}
+
+/* ====== Clique correto / errado ====== */
+.bloco.correto {
+  animation: piscar-verde 0.25s ease;
+}
+@keyframes piscar-verde {
+  0% { background-color: #4fffaf; transform: scale(1.05); }
+  50% { background-color: #00ff88; transform: scale(1.1); }
+  100% { background-color: #4fffaf; transform: scale(1); }
+}
+
+.bloco.errado {
+  animation: piscar-vermelho 0.25s ease;
+}
+@keyframes piscar-vermelho {
+  0% { background-color: #ff3b3b; transform: scale(1.05); }
+  50% { background-color: #ff0000; transform: scale(1.1); }
+  100% { background-color: #ff3b3b; transform: scale(1); }
+}
+  
+/* ====== Botão Iniciar ====== */
+.iniciar-jogo-reflexo {
+  position: absolute;
+  background: radial-gradient(circle at 30% 30%, #72cff7 0%, #3baee4 40%, #0091c9 100%);
+  color: #020f30;
+  border: 2px solid #89b8ec;
+  border-radius: 34px;
+  padding: 12px 22px;
+  font-size: 22px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 10;
+  bottom: 6%;
+}
+
+.iniciar-jogo-reflexo:hover {
+  background-color: #3535a5;
+}
+
+.iniciar-jogo-reflexo.oculto {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -60%);
+}
+
+
+/* ===== Modal de Fim de Jogo ===== */
+.modal-fim-reflexo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-conteudo-reflexo {
+  background: radial-gradient(circle at center, #0b0b4a 0%, #050533 80%);
+  color: #e2e2e2;
+  text-align: center;
+  font-family: 'Chewy', cursive;
+  padding: 60px 70px;
+  border-radius: 25px;
+  animation: pop 0.4s ease;
+  max-width: 450px;
+  width: 90%;
+  border: 2px solid rgba(114, 207, 247, 0.3);
+}
+
+.modal-conteudo-reflexo h2 {
+  color: #b8c4c9;
+  font-size: 32px;
+  margin-bottom: 15px;
+  font-family: 'Chewy', cursive;
+}
+
+.modal-conteudo-reflexo p {
+   color: #b8c4c9;
+  font-size: 28px;
+  margin-top: 40px;
+  font-family: 'Chewy', cursive;
+}
+
+.btn-modal-jogar-reflexo {
+  background: radial-gradient(circle at 30% 30%, #72cff7 0%, #3baee4 40%, #0091c9 100%);
+  color: #020f30;
+  border: 2px solid #89b8ec;
+  border-radius: 50px;
+  padding: 16px 32px;
+  font-weight: bolder;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.4), inset 0 0 10px rgba(255,255,255,0.2);
+  transition: all 0.25s ease;
+  margin-top: 20px;
+  font-family: 'Chewy', cursive;
+}
+
+.btn-modal-jogar-reflexo:hover {
+  transform: scale(1.03);
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+/* ===== Responsividade ===== */
+/* 📱 Celulares (telas até 600px) */
+@media (max-width: 600px) {
+    .header-jogo-reflexo {
+    justify-content: center;
+    margin-bottom: 60px;
+    padding: 0 20px;
+    margin-left: 10px;
+  }
+
+  .reflexo-btns {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 100px;
+    width: 100%;
+  }
+
+   .vidas-container {
+    width: 70%;
+    max-width: 300px;
+    height: 14px;
+    border-width: 1.5px;
+    border-radius: 8px;
+    margin: 0 auto;
+  }
+
+  .barra-vidas {
+    height: 100%;
+    width: 50%;
+  }
+ 
+  .reflexo-sair-btn,
+  .botao-reiniciar-reflexo {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+
+
+  .cronometro {
+    font-size: 20px;
+  }
+
+  .tabuleiro-reflexos {
+    grid-template-columns: repeat(2, 120px);
+    grid-template-rows: repeat(3, 120px);
+    gap: 12px;
+  }
+  .bloco {
+    width: 120px;
+    height: 120px;
+  }
+
+  .iniciar-jogo-reflexo {
+    font-size: 16px;
+    padding: 12px 22px;
+  }
+}
+
+/* 📱 Tablets (600px a 900px) */
+@media (min-width: 601px) and (max-width: 900px) {
+    .header-jogo-reflexo {
+    justify-content: center;
+    margin-bottom: 100px;
+    padding: 0 30px;
+  }
+
+  .reflexo-btns {
+    justify-content: space-evenly;
+    gap: 15px;
+    margin-bottom: 120px;
+  }
+
+  .reflexo-sair-btn,
+  .botao-reiniciar-reflexo {
+    width: 45px;
+    height: 45px;
+    font-size: 22px;
+  }
+
+  .tabuleiro-reflexos {
+    grid-template-columns: repeat(2, 150px);
+    grid-template-rows: repeat(3, 150px);
+    gap: 15px;
+  }
+  .bloco {
+    width: 150px;
+    height: 150px;
+  }
+
+  .vidas-container {
+    width: 85%;
+    height: 16px;
+    border-width: 2px;
+    border-radius: 9px;
+    margin: 0 auto;
+  }
+
+  .barra-vidas {
+    height: 100%;
+  }
+  
+  .iniciar-jogo-reflexo {
+    font-size: 20px;
+    padding: 12px 12px;
+  }
+}
+
+/* 💻 Notebooks e PCs grandes */
+@media (min-width: 901px) {
+
+   .tabuleiro-reflexos {
+    grid-template-columns: repeat(2, 200px);
+    grid-template-rows: repeat(3, 200px);
+    gap: 18px;
+  }
+  .bloco {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .reflexo-sair-btn,
+  .botao-reiniciar-reflexo {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+
+  .iniciar-jogo-reflexo {
+    font-size: 20px;
+    padding: 12px 12px;
+
+  }
+}
+
+/* ⚡ CONQUISTA REFLEXO */
+.reflexo-conquista-pop {
+  position: fixed;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.95);
+  background: #f0eded;
+  border: 2px solid #062e79;
+  color: #062e79;
+  font-weight: bold;
+  font-family: 'Chewy', cursive;
+  padding: 12px 22px;
+  border-radius: 16px;
+  box-shadow: 0 0 12px rgba(17, 67, 231, 0.548);
+  text-align: center;
+  animation: reflexoConquistaIn 0.5s ease forwards, reflexoConquistaOut 0.5s ease 4.5s forwards;
+  z-index: 9999;
+  opacity: 0;
+}
+
+.reflexo-conquista-texto {
+  font-size: 20px;
+  font-family: 'Chewy', cursive;
+}
+
+/* Animações */
+@keyframes reflexoConquistaIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px) scale(0.8);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+}
+
+@keyframes reflexoConquistaOut {
+  0% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px) scale(0.9);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .reflexo-conquista-pop {
+    top: 15px;
+    padding: 10px 18px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .reflexo-conquista-pop {
+    width: 80%;
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}
+

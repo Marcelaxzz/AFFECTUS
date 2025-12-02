@@ -1,0 +1,145 @@
+/* Garante que o layout ocupe toda a tela sem margens */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: Arial, sans-serif;
+}
+
+/* CONTAINER PRINCIPAL */
+.dashboard-container { 
+  display: grid;
+  grid-template-columns: 300px 1fr; /* Sidebar fixa + resto ocupa tudo */
+  width: 100%; 
+  height: 100vh;
+}
+
+/* SIDEBAR */
+.dashboard-sidebar {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-right: 1px solid #e9ecef;
+}
+
+/* MAIN (conteúdo principal) */
+.dashboard-main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;      /* ocupa toda largura disponível */
+  height: 100%;     /* ocupa toda altura disponível */
+  overflow-y: auto; /* rolagem só no conteúdo principal */
+  background: #fff;
+}
+
+/* HEADER */
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.logo-subtext {
+  font-size: 10px;
+  color: #6c757d;
+  margin: 0;
+}
+
+.header-content {
+  text-align: center;
+  flex: 1;
+}
+
+.greeting {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin: 0 0 5px 0;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #6c757d;
+  margin: 0;
+}
+
+.logout-btn {
+  padding: 8px 16px;
+  background-color: transparent;
+  border: 1px solid #6c757d;
+  border-radius: 4px;
+  color: #6c757d;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #f1f1f1;
+}
+
+/* GRID DE CARDS */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 40px;
+  flex: 1; /* força ocupar espaço restante */
+  box-sizing: border-box;
+}
+
+/* CARDS */
+.stat-card {
+  padding: 20px;
+  border-radius: 8px;
+  color: white;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.stat-card-green { background-color: #4CAF50; }
+.stat-card-blue { background-color: #2196F3; }
+.stat-card-orange { background-color: #FF9800; }
+.stat-card-red { background-color: #FF6B35; }
+.stat-card-pink { background-color: #FFB6C1; }
+
+.stat-title {
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+  line-height: 1.2;
+}
+
+.stat-number {
+  font-size: 32px;
+  font-weight: bold;
+  margin: 0;
+  opacity: 0;
+  transform: scale(0.95);
+  animation: fadeInNumber 1s ease-out forwards;
+}
+
+/* Animação suave dos números */
+@keyframes fadeInNumber {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
